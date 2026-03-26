@@ -17,7 +17,7 @@ class Validator(ABC):
         pass
 
 class Number(Validator):
-    def __init__(self, max_value: int, min_value: int):
+    def __init__(self, min_value: int, max_value: int):
         self.max_value = max_value
         self.min_value = min_value
 
@@ -29,7 +29,7 @@ class Number(Validator):
 
 
 class OneOf(Validator):
-    def __init__(self, options):
+    def __init__(self, *options):
         self.options = options
     def validate(self, value):
         if value not in self.options:
